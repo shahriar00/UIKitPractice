@@ -8,22 +8,36 @@
 import UIKit
 
 class LabelViewController: UIViewController {
+    
+    private var label = UILabel()
+    
+    private var subTitle : UILabel = {
+        let label = UILabel()
+        label.text = "Subtitle of the hello world"
+        label.textColor = .secondaryLabel
+        return label
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        label.text = "Hello, World!"
+        label.font = .systemFont(ofSize: 36)
+        
+        view.addSubview(label)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        label.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        
+        view.addSubview(subTitle)
+        subTitle.translatesAutoresizingMaskIntoConstraints = false
+        subTitle.topAnchor.constraint(equalTo: label.bottomAnchor,constant: 9).isActive = true
+        subTitle.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
 
-        // Do any additional setup after loading the view.
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+}
+#Preview {
+    LabelViewController()
 }
