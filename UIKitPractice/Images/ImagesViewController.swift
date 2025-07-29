@@ -8,22 +8,28 @@
 import UIKit
 
 class ImagesViewController: UIViewController {
+    
+    private var imageView = UIImageView()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        imageView.contentMode = .scaleAspectFit
+        
+        imageView.clipsToBounds = true
+        view.addSubview(imageView)
+        imageView.translatesAutoresizingMaskIntoConstraints = false
+        imageView.image = UIImage(systemName: "star")
         // Do any additional setup after loading the view.
+        imageView.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        imageView.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        imageView.widthAnchor.constraint(equalToConstant: 200).isActive = true
+        imageView.heightAnchor.constraint(equalToConstant: 200).isActive = true
     }
     
 
-    /*
-    // MARK: - Navigation
+}
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+#Preview{
+    ImagesViewController()
 }

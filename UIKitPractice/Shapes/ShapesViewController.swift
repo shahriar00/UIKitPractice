@@ -8,10 +8,26 @@
 import UIKit
 
 class ShapesViewController: UIViewController {
+    
+    private var rect: UIView = {
+        
+        var view = UIView()
+        view.backgroundColor = .systemBlue
+        view.layer.cornerRadius = 20
+        view.translatesAutoresizingMaskIntoConstraints = false
+        return view
+        
+    }()
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        view.backgroundColor = .systemBackground
+        view.addSubview(rect)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        rect.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        rect.centerYAnchor.constraint(equalTo: view.centerYAnchor).isActive = true
+        rect.heightAnchor.constraint(equalToConstant: 100).isActive = true
+        rect.widthAnchor.constraint(equalToConstant: 100).isActive = true
         // Do any additional setup after loading the view.
     }
     
@@ -26,4 +42,8 @@ class ShapesViewController: UIViewController {
     }
     */
 
+}
+
+#Preview{
+    ShapesViewController()
 }
